@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: shopkiro-api
+    runtime: node
+    region: oregon
+    plan: free
+    rootDir: .
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      # Set FRONTEND_URL to your Netlify URL after deploying the frontend
+      # - key: FRONTEND_URL
+      #   value: https://shopkiro.netlify.app
+    healthCheckPath: /api/health
